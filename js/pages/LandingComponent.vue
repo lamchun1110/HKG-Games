@@ -144,6 +144,7 @@ export default {
         .then((resp) => {
           this.news = resp;
           this.scrolledToBottom = false;
+          this.page = this.page + 1;
         })
         .catch((error) => {
           console.log(error);
