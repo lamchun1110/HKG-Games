@@ -1,0 +1,75 @@
+:root {
+    --main-text: #212529;
+}
+
+* {
+    text-decoration: none;
+}
+
+a {
+    color: var(--main-text)!important;
+}
+
+body {
+    background: #fafafa;
+}
+
+#header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+#header .logo img {
+    max-width: 200px;
+}
+
+#header a img {
+    max-width: 25px;
+}
+
+#header .dropdown-toggle {
+    background: transparent;
+    border: 0;
+    color: var(--main-text);
+}
+
+#header .dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+#header .dropdown-menu {
+    margin: 0;
+}
+
+#header .menus>* {
+    vertical-align: middle;
+}
+
+.banner {
+    background-size: 100%;
+    background-position: center;
+}
+
+.banner .backdrop-filter {
+    backdrop-filter: blur(8px)
+}
+
+.banner .carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+    left: unset;
+    right: unset;
+    bottom: 0;
+    width: 100%;
+}
+
+.news {
+    border-radius: 15px;
+    border: 1px solid #eee;
+    background: #fff;
+}
+
+.news .date {
+    border-bottom: 1px solid #eee;
+}
