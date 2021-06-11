@@ -73,3 +73,15 @@ body {
 .news .date {
     border-bottom: 1px solid #eee;
 }
+
+
+/* News Detail page */
+
+#news-detail .title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#news-detail .sub-title {
+    border-bottom: 1px solid #eee;
+}

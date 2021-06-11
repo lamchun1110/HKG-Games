@@ -27,11 +27,6 @@
     <div class="content">
       <b-container>
         <div class="my-5 news p-3" v-for="(item, index) in news" :key="index">
-          <b-row>
-            <b-col class="date mx-3 py-3">
-              123
-            </b-col>
-          </b-row>
           <b-row class="py-3">
             <b-col>
               <img :src="item.photo" alt="" />
@@ -149,11 +144,12 @@ export default {
         .then((resp) => {
           this.news = resp;
           this.scrolledToBottom = false;
-          this.loading = false;
         })
         .catch((error) => {
-          this.loading = false;
           console.log(error);
+        })
+        .finally(() => {
+          this.loading = false;
         });
     },
   },

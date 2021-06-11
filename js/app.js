@@ -39,7 +39,6 @@ const router = new VueRouter({
 // Create Vuejs instance with your settings
 window.onload = () => {
 	const app = new Vue({
-		delimiters: ["<%", "%>"],
 		router
 	}).$mount('#app'); // Point to html's div that you want to use Vuejs
 }
