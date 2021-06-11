@@ -33,13 +33,13 @@
             </b-col>
             <b-col sm="12" lg="4">
               <div class="title">
-                {{ item.title }}
+                <% item.title %>
               </div>
               <div class="sub-title">
-                {{ item.subtitle }}
+                <% item.subtitle %>
               </div>
               <div class="text-content">
-                {{ item.text }}
+                <% item.text %>
               </div>
             </b-col>
             <b-col sm="12" lg="4" class="align-self-center text-right">
@@ -47,7 +47,7 @@
                 :to="'/news/' + item.id"
                 class="btn btn-primary text-white"
               >
-                {{ item.button_text }}
+                <% item.button_text %>
               </router-link>
             </b-col>
           </b-row>

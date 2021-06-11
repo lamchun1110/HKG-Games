@@ -11,7 +11,6 @@ window.axios = require('axios');
 window.Vue = Vue;
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
-
 // Define vue router
 
 // Define route components
@@ -39,6 +38,7 @@ const router = new VueRouter({
 // Create Vuejs instance with your settings
 window.onload = () => {
 	const app = new Vue({
+		delimiters: ['<%', '%>'],
 		router
 	}).$mount('#app'); // Point to html's div that you want to use Vuejs
 }
