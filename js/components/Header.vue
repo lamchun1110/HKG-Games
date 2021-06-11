@@ -3,7 +3,9 @@
     <b-container>
       <b-navbar toggleable="lg" class="px-0">
         <b-navbar-brand href="#" class="logo">
-			<img src="/images/hkg-logo-hori.png" alt="">
+			<router-link to="/">
+				<img src="/images/hkg-logo-hori.png" alt="">
+			</router-link>
 		</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
