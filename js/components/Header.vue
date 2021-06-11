@@ -3,9 +3,9 @@
     <b-container>
       <b-row class="align-items-center">
         <b-col class="logo">
-          <a href="/">
+          <router-link to="/">
             <img src="/images/hkg-logo-hori.png" alt="" />
-          </a>
+          </router-link>
         </b-col>
         <b-col class="text-right menus">
           <div
