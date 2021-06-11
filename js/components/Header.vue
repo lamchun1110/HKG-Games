@@ -52,7 +52,6 @@ export default {
   },
   methods: {
     onOver() {
-		console.log(window.innerWidth)
 		if(window.innerWidth > 991) {
 			this.$refs.dropdown.visible = true;
 		}
