@@ -28,10 +28,10 @@
       <b-container>
         <div class="my-5 news p-3" v-for="(item, index) in news" :key="index">
           <b-row class="py-3">
-            <b-col>
+            <b-col sm="12" lg="4">
               <img :src="item.photo" alt="" />
             </b-col>
-            <b-col>
+            <b-col sm="12" lg="4">
               <div class="title">
                 {{ item.title }}
               </div>
@@ -42,7 +42,7 @@
                 {{ item.text }}
               </div>
             </b-col>
-            <b-col class="align-self-center text-right">
+            <b-col sm="12" lg="4" class="align-self-center text-right">
               <router-link
                 :to="'/news/' + item.id"
                 class="btn btn-primary text-white"
