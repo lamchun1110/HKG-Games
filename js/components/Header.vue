@@ -13,7 +13,7 @@
         <b-collapse id="nav-collapse" is-nav class="justify-content-end">
 			<div @mouseover="onOver" @mouseleave="onLeave">
 				<b-nav-item-dropdown text="Esports League" right ref="dropdown" class="my-sm-3">
-					<b-dropdown-item class="ml-sm-2" :href="esport.link" v-for="(esport, index) in esports" :key="index"><% esport.title %></b-dropdown-item></b-dropdown-item>
+					<b-dropdown-item class="ml-sm-2" :href="esport.link" v-for="(esport, index) in esports" :key="index">{{ esport.title }}</b-dropdown-item></b-dropdown-item>
 				</b-nav-item-dropdown>
 			</div>
 
@@ -49,7 +49,7 @@ export default {
   },
   created() {
     axios.get("https://hkg.games/api/esports_league").then((resp) => {
-      this.esports = resp;
+      this.esports = resp.data;
     });
   },
   methods: {

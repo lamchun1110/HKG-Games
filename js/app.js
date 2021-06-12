@@ -7,6 +7,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // Setup ajax
 window.axios = require('axios');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.Vue = Vue;
 Vue.use(BootstrapVue)
@@ -38,7 +39,6 @@ const router = new VueRouter({
 // Create Vuejs instance with your settings
 window.onload = () => {
 	const app = new Vue({
-		delimiters: ['<%', '%>'],
 		router
 	}).$mount('#app'); // Point to html's div that you want to use Vuejs
 }

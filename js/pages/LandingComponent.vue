@@ -3,7 +3,7 @@
     <header-component></header-component>
     <div
       class="banner"
-      :style="'background-image: url(' + banners[slideIndex].url + ')'"
+      :style="'background-image: url(' + banners[slideIndex].photo + ')'"
     >
       <div class="backdrop-filter">
         <b-container>
@@ -17,8 +17,8 @@
               v-for="(banner, index) in banners"
               :key="index"
               :caption="banner.title"
-              :text="banner.desc"
-              :img-src="banner.url"
+              :text="banner.subtitle"
+              :img-src="banner.photo"
             ></b-carousel-slide>
           </b-carousel>
         </b-container>
@@ -33,13 +33,13 @@
             </b-col>
             <b-col sm="12" lg="4">
               <div class="title">
-                <% item.title %>
+                {{ item.title }}
               </div>
               <div class="sub-title">
-                <% item.subtitle %>
+                {{ item.subtitle }}
               </div>
               <div class="text-content">
-                <% item.text %>
+                {{ item.text }}
               </div>
             </b-col>
             <b-col sm="12" lg="4" class="align-self-center text-right">
@@ -47,7 +47,7 @@
                 :to="'/news/' + item.id"
                 class="btn btn-primary text-white"
               >
-                <% item.button_text %>
+                {{ item.button_text }}
               </router-link>
             </b-col>
           </b-row>
@@ -68,41 +68,8 @@ export default {
       page: 0,
       scrolledToBottom: false,
       loading: false,
-      banners: [
-        {
-          title: "slide",
-          desc: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
-          url: "https://picsum.photos/1024/480/?image=52",
-        },
-        {
-          title: "slide",
-          desc: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
-          url: "https://picsum.photos/1024/480/?image=52",
-        },
-        {
-          title: "slide",
-          desc: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
-          url: "https://picsum.photos/1024/480/?image=52",
-        },
-      ],
-      news: [
-        {
-          title: "title2",
-          subtitle: "sub2222",
-          photo: "/media/news/3198cd40-41fe-4a33-a1f3-d75cda8ed13c.png",
-          text: "asdas dasdasc as\r\ncascas c",
-          id: 2,
-          button_text: "Madness",
-        },
-        {
-          title: "fasfas da",
-          subtitle: "da sdasd",
-          photo: "/media/news/4fca7594-73db-458b-bff2-8d482199d8c2.png",
-          text: "wge vbwefgqwaczxc sd",
-          id: 6,
-          button_text: "dasd",
-        },
-      ],
+      banners: [],
+      news: [],
     };
   },
   created() {
@@ -134,7 +101,7 @@ export default {
     },
     getBanners() {
       axios.get("https://hkg.games/api/banner").then((resp) => {
-        this.banners = resp;
+        this.banners = resp.data;
       });
     },
     getNews() {
@@ -142,7 +109,7 @@ export default {
       axios
         .get("https://hkg.games/api/news_list/" + this.page)
         .then((resp) => {
-          this.news = resp;
+          this.news = resp.data;
           this.scrolledToBottom = false;
           this.page = this.page + 1;
         })

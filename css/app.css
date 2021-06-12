@@ -83,6 +83,10 @@ body {
     border-bottom: 1px solid #eee;
 }
 
+.news img {
+    max-width: 100%;
+}
+
 
 /* News Detail page */
 
