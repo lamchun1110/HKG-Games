@@ -2,6 +2,7 @@
   <div>
     <header-component></header-component>
     <div
+      v-if="banners.length > 0"
       class="banner"
       :style="'background-image: url(' + banners[slideIndex].photo + ')'"
     >
