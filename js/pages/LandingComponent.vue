@@ -28,30 +28,24 @@
     <div class="content">
       <b-container>
         <div class="my-5 news p-3" v-for="(item, index) in news" :key="index">
-          <b-row class="py-3">
-            <b-col sm="12" lg="4" class="text-center text-center">
-              <img :src="item.photo" alt="" />
-            </b-col>
-            <b-col sm="12" lg="4">
-              <div class="title">
-                {{ item.title }}
-              </div>
-              <div class="sub-title">
-                {{ item.subtitle }}
-              </div>
-              <div class="text-content">
-                {{ item.text }}
-              </div>
-            </b-col>
-            <b-col sm="12" lg="4" class="align-self-center text-right">
-              <router-link
-                :to="'/news/' + item.id"
-                class="btn btn-primary text-white"
-              >
-                {{ item.button_text }}
-              </router-link>
-            </b-col>
-          </b-row>
+          <router-link :to="'/news/' + item.id" class="w-100">
+            <b-row class="py-3">
+              <b-col sm="12" lg="4" class="text-center text-center">
+                <img :src="item.photo" alt="" />
+              </b-col>
+              <b-col sm="12" lg="4">
+                <div class="title">
+                  {{ item.title }}
+                </div>
+                <div class="sub-title">
+                  {{ item.subtitle }}
+                </div>
+                <div class="text-content">
+                  {{ item.text }}
+                </div>
+              </b-col>
+            </b-row>
+          </router-link>
         </div>
         <div class="text-center mb-3" v-if="loading">
           <b-spinner label="Spinning"></b-spinner>
@@ -67,10 +61,10 @@ export default {
     return {
       slideIndex: 0,
       page: 0,
-      scrolledToBottom: false,
       loading: false,
       banners: [],
       news: [],
+      end: false,
     };
   },
   created() {
@@ -95,8 +89,8 @@ export default {
             window.innerHeight ===
           document.documentElement.offsetHeight;
 
-        if (bottomOfWindow) {
-          this.scrolledToBottom = true; // replace it with your code
+        if (bottomOfWindow && this.end == false) {
+          this.getNews();
         }
       };
     },
@@ -106,20 +100,27 @@ export default {
       });
     },
     getNews() {
-      this.loading = true;
-      axios
-        .get("https://hkg.games/api/news_list/" + this.page)
-        .then((resp) => {
-          this.news = resp.data;
-          this.scrolledToBottom = false;
-          this.page = this.page + 1;
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-        .finally(() => {
-          this.loading = false;
-        });
+      if (!this.loading) {
+        this.loading = true;
+        axios
+          .get("https://hkg.games/api/news_list/" + this.page)
+          .then((resp) => {
+            if (resp.data.length > 0) {
+              for (var i = 0; i < resp.data.length; i++) {
+                this.news.push(resp.data[i]);
+                this.page = this.page + 1;
+              }
+            } else {
+              this.end = true;
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      }
     },
   },
 };
