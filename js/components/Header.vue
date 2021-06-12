@@ -4,7 +4,7 @@
       <b-navbar toggleable="lg" class="px-0">
         <b-navbar-brand href="#" class="logo">
 			<router-link to="/">
-				<img src="/images/hkg-logo-hori.png" alt="">
+				<img src="/static/images/hkg-logo-hori.png" alt="">
 			</router-link>
 		</b-navbar-brand>
 
@@ -19,16 +19,16 @@
 
 			<b-nav-form class="icons my-sm-3">
 				<a class="mx-3" href="https://fb.com/Hong.Kong.Gaming">
-					<img src="/images/fb-icon.png" alt="">
+					<img src="/static/images/fb-icon.png" alt="">
 				</a>
 				<a class="mx-3" href="https://fb.com/Hong.Kong.Gaming">
-					<img src="/images/ig-icon.png" alt="">
+					<img src="/static/images/ig-icon.png" alt="">
 				</a>
 				<a class="mx-3" href="https://fb.com/Hong.Kong.Gaming">
-					<img src="/images/youtube-icon.png" alt="">
+					<img src="/static/images/youtube-icon.png" alt="">
 				</a>
 				<a class="mx-3" href="https://fb.com/Hong.Kong.Gaming">
-					<img src="/images/twitch-icon.png" alt="">
+					<img src="/static/images/twitch-icon.png" alt="">
 				</a>
 			</b-nav-form>
           </b-navbar-nav>
