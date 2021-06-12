@@ -29,7 +29,7 @@
       <b-container>
         <div class="my-5 news p-3" v-for="(item, index) in news" :key="index">
           <b-row class="py-3">
-            <b-col sm="12" lg="4" class="text-center">
+            <b-col sm="12" lg="4" class="text-center text-center">
               <img :src="item.photo" alt="" />
             </b-col>
             <b-col sm="12" lg="4">
