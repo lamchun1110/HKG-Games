@@ -73,6 +73,11 @@ body {
     width: 100%;
 }
 
+.carousel,
+.carousel .carousel-item {
+    height: 500px;
+}
+
 .title {
     font-size: 2rem
 }

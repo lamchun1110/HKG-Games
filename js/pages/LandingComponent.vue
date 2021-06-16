@@ -30,10 +30,10 @@
         <div class="my-5 news p-3" v-for="(item, index) in news" :key="index">
           <router-link :to="'/news/' + item.id" class="w-100">
             <b-row class="py-3">
-              <b-col sm="12" lg="4" class="text-center text-center">
+              <b-col cols="3" lg="3" class="text-center text-center">
                 <img :src="item.photo" alt="" />
               </b-col>
-              <b-col sm="12" lg="4">
+              <b-col cols="9" lg="9">
                 <div class="title">
                   {{ item.title }}
                 </div>
@@ -69,10 +69,10 @@ export default {
   },
   created() {
     this.getBanners();
-    this.getNews();
   },
   mounted() {
     this.scroll();
+    this.getNews();
   },
   methods: {
     onSlideStart(slide) {
@@ -108,8 +108,8 @@ export default {
             if (resp.data.length > 0) {
               for (var i = 0; i < resp.data.length; i++) {
                 this.news.push(resp.data[i]);
-                this.page = this.page + 1;
               }
+              this.page = this.page + 1;
             } else {
               this.end = true;
             }
