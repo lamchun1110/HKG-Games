@@ -82,6 +82,19 @@ body {
     font-size: 2rem
 }
 
+.title span {
+    vertical-align: middle;
+}
+
+.tags {
+    font-size: initial;
+    border-radius: 5px;
+}
+
+.tags.blue {
+    background: #86d3f3;
+}
+
 .news {
     border-radius: 15px;
     border: 1px solid #eee;

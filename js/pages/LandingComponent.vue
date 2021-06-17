@@ -35,7 +35,13 @@
               </b-col>
               <b-col cols="9" lg="9">
                 <div class="title">
-                  {{ item.title }}
+                  <span
+                    class="tags blue text-center py-1 px-2 mr-2"
+                    v-for="(tagName, index) in item.tag"
+                    :key="index"
+                    >{{ tagName }}</span
+                  >
+                  <span>{{ item.title }}</span>
                 </div>
                 <div class="sub-title">
                   {{ item.subtitle }}
