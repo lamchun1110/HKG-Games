@@ -73,9 +73,11 @@ body {
     width: 100%;
 }
 
-.carousel,
-.carousel .carousel-item img {
-    height: 500px;
+@media screen and (min-width: 992px) {
+    .carousel,
+    .carousel .carousel-item img {
+        height: 500px;
+    }
 }
 
 .title {
@@ -127,5 +129,10 @@ body {
     }
     #header .form-inline {
         display: block;
+    }
+    .carousel-caption h3,
+    .carousel-caption p {
+        margin: 0;
+        font-size: 0.75rem;
     }
 }
