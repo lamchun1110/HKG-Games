@@ -14,19 +14,38 @@
             controls
             @sliding-start="onSlideStart"
           >
-            <b-carousel-slide
+            <a
+              :href="banner.link"
               v-for="(banner, index) in banners"
               :key="index"
-              :caption="banner.title"
-              :text="banner.subtitle"
-              :img-src="banner.photo"
-            ></b-carousel-slide>
+            >
+              <b-carousel-slide
+                :caption="banner.title"
+                :text="banner.subtitle"
+                :img-src="banner.photo"
+              ></b-carousel-slide>
+            </a>
           </b-carousel>
         </b-container>
       </div>
     </div>
     <div class="content">
       <b-container>
+        <div class="my-5 p-3">
+			<span
+            class="tags blue text-center py-1 px-2 mr-2 pointer"
+			@click="selectTag(null)"
+			>
+			All
+			</span>
+          <span
+            class="tags blue text-center py-1 px-2 mr-2 pointer"
+            v-for="(tag, index) in tags"
+            :key="index"
+            @click="selectTag(index)"
+            >{{ tag }}</span
+          >
+        </div>
         <div class="my-5 news p-3" v-for="(item, index) in news" :key="index">
           <router-link :to="'/news/' + item.id" class="w-100">
             <b-row class="py-3">
@@ -70,11 +89,14 @@ export default {
       loading: false,
       banners: [],
       news: [],
+      tags: [],
       end: false,
+      selectedTag: null,
     };
   },
   created() {
     this.getBanners();
+    this.getTags();
   },
   mounted() {
     this.scroll();
@@ -83,6 +105,12 @@ export default {
   methods: {
     onSlideStart(slide) {
       this.slideIndex = slide;
+    },
+    selectTag(index) {
+      this.selectedTag = index;
+      this.page = 0;
+      this.news = [];
+      this.getNews();
     },
     scroll() {
       window.onscroll = () => {
@@ -105,11 +133,21 @@ export default {
         this.banners = resp.data;
       });
     },
+    getTags() {
+      console.log(123);
+      axios.get("https://hkg.games/api/news_tags").then((resp) => {
+        this.tags = resp.data;
+      });
+    },
     getNews() {
       if (!this.loading) {
         this.loading = true;
+        let url = "https://hkg.games/api/news_list/" + this.page;
+        if (this.selectedTag != null) {
+          url += "/" + this.tags[this.selectedTag];
+        }
         axios
-          .get("https://hkg.games/api/news_list/" + this.page)
+          .get(url)
           .then((resp) => {
             if (resp.data.length > 0) {
               for (var i = 0; i < resp.data.length; i++) {

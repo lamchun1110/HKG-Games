@@ -113,6 +113,10 @@ body {
     position: relative;
 }
 
+.pointer {
+	cursor: pointer;
+}
+
 
 /* News Detail page */
 
