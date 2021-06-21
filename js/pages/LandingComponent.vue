@@ -32,12 +32,12 @@
     <div class="content">
       <b-container>
         <div class="my-5 p-3">
-			<span
+          <span
             class="tags blue text-center py-1 px-2 mr-2 pointer"
-			@click="selectTag(null)"
-			>
-			All
-			</span>
+            @click="selectTag(null)"
+          >
+            All
+          </span>
           <span
             class="tags blue text-center py-1 px-2 mr-2 pointer"
             v-for="(tag, index) in tags"
@@ -49,10 +49,10 @@
         <div class="my-5 news p-3" v-for="(item, index) in news" :key="index">
           <router-link :to="'/news/' + item.id" class="w-100">
             <b-row class="py-3">
-              <b-col cols="3" lg="3" class="text-center text-center">
+              <b-col cols="4" lg="4" class="text-center pr-0">
                 <img :src="item.photo" alt="" />
               </b-col>
-              <b-col cols="9" lg="9">
+              <b-col cols="8" lg="8">
                 <div class="title">
                   <span
                     class="tags blue text-center py-1 px-2 mr-2"
