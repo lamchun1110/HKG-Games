@@ -3,11 +3,9 @@
     <header-component></header-component>
     <b-container>
       <div class="title py-2">{{ news.title }}</div>
-      <div class="sub-title py-2">{{ news.subtitle }}</div>
       <div class="content py-3" v-html="news.content">
         {{ news.content }}
       </div>
-      <img :src="news.photo" alt="" />
     </b-container>
   </div>
 </template>

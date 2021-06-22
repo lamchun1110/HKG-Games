@@ -7,8 +7,10 @@
 }
 
 a {
-    color: var(--main-text)!important;
+    /* color: var(--main-text)!important; */
+    color: #65D5F4;
 }
+
 
 a:hover {
     text-decoration: none!important;

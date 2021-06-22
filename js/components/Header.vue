@@ -21,13 +21,13 @@
 				<a class="mx-3" href="https://fb.com/Hong.Kong.Gaming">
 					<img src="/static/images/fb-icon.png" alt="">
 				</a>
-				<a class="mx-3" href="https://fb.com/Hong.Kong.Gaming">
+				<a class="mx-3" href="https://instagram.com/Hong.Kong.Gaming">
 					<img src="/static/images/ig-icon.png" alt="">
 				</a>
 				<a class="mx-3" href="https://fb.com/Hong.Kong.Gaming">
 					<img src="/static/images/youtube-icon.png" alt="">
 				</a>
-				<a class="mx-3" href="https://fb.com/Hong.Kong.Gaming">
+				<a class="mx-3" href="https://twitch.tv/hkg_game">
 					<img src="/static/images/twitch-icon.png" alt="">
 				</a>
 			</b-nav-form>
