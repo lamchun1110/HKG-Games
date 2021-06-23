@@ -83,11 +83,14 @@ body {
     .carousel .carousel-item img {
         height: 500px;
     }
+    .title {
+        font-size: 1.5rem;
+    }
+    .sub-title {
+        font-size: 1rem;
+    }
 }
 
-.title {
-    font-size: 2rem
-}
 
 .title span {
     vertical-align: middle;
@@ -158,6 +161,12 @@ body {
     .carousel-caption h3,
     .carousel-caption p {
         margin: 0;
+        font-size: 0.75rem;
+    }
+    .title {
+        font-size: 1rem;
+    }
+    .sub-title {
         font-size: 0.75rem;
     }
 }
